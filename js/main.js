@@ -1,292 +1,549 @@
-/* ============================================================
-   Bellowing Acres — main.js
-   Lightweight: IntersectionObserver, nav, counters, scroll
-   ============================================================ */
+/* ========================================
+   BELLOWING ACRES — MAIN.JS
+   GSAP ScrollTrigger + Premium Interactions
+   ======================================== */
 
 (function () {
   'use strict';
 
-  // ── Nav scroll behavior ──────────────────────────────────
-  const nav = document.querySelector('.nav');
+  // ── GSAP Setup ──
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── Nav Scroll Effect ──
+  const nav = document.getElementById('nav');
   if (nav) {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    ScrollTrigger.create({
+      start: 'top -60',
+      end: 99999,
+      onUpdate: (self) => {
+        if (self.direction === 1 || window.scrollY > 60) {
+          nav.classList.add('scrolled');
+        }
+        if (window.scrollY <= 60) {
+          nav.classList.remove('scrolled');
+        }
+      },
+    });
   }
 
-  // ── Mobile nav toggle ────────────────────────────────────
-  const hamburger = document.querySelector('.nav__hamburger');
-  const mobileNav = document.querySelector('.nav__mobile');
+  // ── Mobile Nav Toggle ──
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('navMobile');
 
-  if (hamburger && mobileNav) {
+  if (hamburger && navMobile) {
     hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
-      mobileNav.classList.toggle('open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-      hamburger.setAttribute('aria-expanded', isOpen);
+      hamburger.classList.toggle('open');
+      navMobile.classList.toggle('open');
+      document.body.style.overflow = navMobile.classList.contains('open')
+        ? 'hidden'
+        : '';
     });
 
     // Close on link click
-    mobileNav.querySelectorAll('a').forEach(link => {
+    navMobile.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
-        mobileNav.classList.remove('open');
+        navMobile.classList.remove('open');
         document.body.style.overflow = '';
-        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // ── Scroll Reveal Animations ──
+  // Every element with .anim fades up on scroll
+  gsap.utils.toArray('.anim').forEach((el) => {
+    gsap.from(el, {
+      y: 50,
+      opacity: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      },
+    });
+  });
+
+  // ── Staggered Card Animations ──
+  gsap.utils.toArray('.cards-grid').forEach((grid) => {
+    const cards = grid.querySelectorAll('.glass-card, .animal-card, .help-card, .founder-card, .rescue-card');
+    if (cards.length === 0) return;
+
+    gsap.from(cards, {
+      y: 70,
+      opacity: 0,
+      duration: 0.75,
+      stagger: 0.12,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: grid,
+        start: 'top 82%',
+        toggleActions: 'play none none none',
+      },
+    });
+  });
+
+  // ── Counter Animations ──
+  document.querySelectorAll('.stat-number').forEach((counter) => {
+    const target = parseInt(counter.getAttribute('data-target'), 10);
+    const suffix = counter.getAttribute('data-suffix') || '';
+    if (isNaN(target)) return;
+
+    const obj = { val: 0 };
+
+    ScrollTrigger.create({
+      trigger: counter,
+      start: 'top 90%',
+      once: true,
+      onEnter: () => {
+        gsap.to(obj, {
+          val: target,
+          duration: 2.2,
+          ease: 'power2.out',
+          onUpdate: () => {
+            counter.textContent = Math.round(obj.val).toLocaleString() + suffix;
+          },
+        });
+      },
+    });
+  });
+
+  // ── News Badge Stagger ──
+  const newsLogos = document.querySelector('.news-logos');
+  if (newsLogos) {
+    const badges = newsLogos.querySelectorAll('.news-badge');
+    gsap.from(badges, {
+      scale: 0.85,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'back.out(1.4)',
+      scrollTrigger: {
+        trigger: newsLogos,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+    });
+  }
+
+  // ── Divider Grow Animation ──
+  gsap.utils.toArray('.divider').forEach((div) => {
+    gsap.from(div, {
+      scaleX: 0,
+      duration: 1.2,
+      ease: 'power2.inOut',
+      scrollTrigger: {
+        trigger: div,
+        start: 'top 92%',
+        toggleActions: 'play none none none',
+      },
+    });
+  });
+
+  // ── Magnetic Button Effect ──
+  document.querySelectorAll('.btn-primary, .btn-outline, .btn-gold-outline').forEach((btn) => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(btn, {
+        x: x * 0.2,
+        y: y * 0.2,
+        duration: 0.3,
+        ease: 'power2.out',
       });
     });
 
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
-        hamburger.classList.remove('open');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: 'elastic.out(1, 0.5)',
+      });
+    });
+  });
+
+  // ── Parallax on Hero Video ──
+  // Disabled — keeps hero asset locked in frame
+  // If you want a subtle effect later, use y: 30 max
+
+  // ── Why Rescue Section Parallax ──
+  const whyRescueVideo = document.querySelector('.why-rescue .hero-video-wrap');
+  if (whyRescueVideo) {
+    gsap.to(whyRescueVideo, {
+      y: 30,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.why-rescue',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
     });
   }
 
-  // ── Active nav link ──────────────────────────────────────
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav__links a, .nav__mobile a').forEach(link => {
-    const href = link.getAttribute('href') || '';
-    if (href === currentPath || (currentPath === '' && href === 'index.html') || (currentPath === 'index.html' && href === 'index.html')) {
-      link.classList.add('active');
-    }
+  // ── Quote Card Reveal ──
+  const quoteCard = document.querySelector('.quote-card');
+  if (quoteCard) {
+    gsap.from(quoteCard, {
+      x: -40,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: quoteCard,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+    });
+  }
+
+  // ── Smooth Scroll for Anchor Links ──
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+   BELLOWING ACRES — MAIN.JS
+   GSAP ScrollTrigger + Premium Interactions
+   ======================================== */
+
+(function () {
+  'use strict';
+
+  // ── GSAP Setup ──
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── Nav Scroll Effect ──
+  const nav = document.getElementById('nav');
+  if (nav) {
+    ScrollTrigger.create({
+      start: 'top -60',
+      end: 99999,
+      onUpdate: (self) => {
+        if (self.direction === 1 || window.scrollY > 60) {
+          nav.classList.add('scrolled');
+        }
+        if (window.scrollY <= 60) {
+          nav.classList.remove('scrolled');
+        }
+      },
+    });
+  }
+
+  // ── Mobile Nav Toggle ──
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('navMobile');
+
+  if (hamburger && navMobile) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navMobile.classList.toggle('open');
+      document.body.style.overflow = navMobile.classList.contains('open')
+        ? 'hidden'
+        : '';
+    });
+
+    // Close on link click
+    navMobile.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navMobile.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // ── Scroll Reveal Animations ──
+  // Every element with .anim fades up on scroll
+  gsap.utils.toArray('.anim').forEach((el) => {
+    gsap.from(el, {
+      y: 50,
+      opacity: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      },
+    });
   });
 
-  // ── Scroll reveal (IntersectionObserver) ─────────────────
-  const revealElements = document.querySelectorAll('.reveal');
+  // ── Staggered Card Animations ──
+  gsap.utils.toArray('.cards-grid').forEach((grid) => {
+    const cards = grid.querySelectorAll('.glass-card, .animal-card, .help-card, .founder-card, .rescue-card');
+    if (cards.length === 0) return;
 
-  if (revealElements.length > 0) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
+    gsap.from(cards, {
+      y: 70,
+      opacity: 0,
+      duration: 0.75,
+      stagger: 0.12,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: grid,
+        start: 'top 82%',
+        toggleActions: 'play none none none',
+      },
+    });
+  });
+
+  // ── Counter Animations ──
+  document.querySelectorAll('.stat-number').forEach((counter) => {
+    const target = parseInt(counter.getAttribute('data-target'), 10);
+    const suffix = counter.getAttribute('data-suffix') || '';
+    if (isNaN(target)) return;
+
+    const obj = { val: 0 };
+
+    ScrollTrigger.create({
+      trigger: counter,
+      start: 'top 90%',
+      once: true,
+      onEnter: () => {
+        gsap.to(obj, {
+          val: target,
+          duration: 2.2,
+          ease: 'power2.out',
+          onUpdate: () => {
+            counter.textContent = Math.round(obj.val).toLocaleString() + suffix;
+          },
         });
       },
-      {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      }
-    );
+    });
+  });
 
-    revealElements.forEach(el => revealObserver.observe(el));
-  }
-
-  // ── Counter animation ────────────────────────────────────
-  function animateCounter(el) {
-    const target = parseFloat(el.dataset.target);
-    const suffix = el.dataset.suffix || '';
-    const prefix = el.dataset.prefix || '';
-    const duration = 1800;
-    const startTime = performance.now();
-    const isDecimal = String(target).includes('.');
-
-    function update(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = target * eased;
-
-      if (isDecimal) {
-        el.textContent = prefix + current.toFixed(1) + suffix;
-      } else {
-        el.textContent = prefix + Math.floor(current) + suffix;
-      }
-
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        el.textContent = prefix + (isDecimal ? target.toFixed(1) : target) + suffix;
-      }
-    }
-
-    requestAnimationFrame(update);
-  }
-
-  const counters = document.querySelectorAll('[data-target]');
-  if (counters.length > 0) {
-    const counterObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            counterObserver.unobserve(entry.target);
-          }
-        });
+  // ── News Badge Stagger ──
+  const newsLogos = document.querySelector('.news-logos');
+  if (newsLogos) {
+    const badges = newsLogos.querySelectorAll('.news-badge');
+    gsap.from(badges, {
+      scale: 0.85,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'back.out(1.4)',
+      scrollTrigger: {
+        trigger: newsLogos,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
       },
-      { threshold: 0.5 }
-    );
-
-    counters.forEach(counter => counterObserver.observe(counter));
+    });
   }
 
-  // ── Smooth scroll for anchor links ───────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
+  // ── Divider Grow Animation ──
+  gsap.utils.toArray('.divider').forEach((div) => {
+    gsap.from(div, {
+      scaleX: 0,
+      duration: 1.2,
+      ease: 'power2.inOut',
+      scrollTrigger: {
+        trigger: div,
+        start: 'top 92%',
+        toggleActions: 'play none none none',
+      },
+    });
+  });
+
+  // ── Magnetic Button Effect ──
+  document.querySelectorAll('.btn-primary, .btn-outline, .btn-gold-outline').forEach((btn) => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(btn, {
+        x: x * 0.2,
+        y: y * 0.2,
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: 'elastic.out(1, 0.5)',
+      });
+    });
+  });
+
+  // ── Parallax on Hero Video ──
+  // Disabled — keeps hero asset locked in frame
+  // If you want a subtle effect later, use y: 30 max
+
+  // ── Why Rescue Section Parallax ──
+  const whyRescueVideo = document.querySelector('.why-rescue .hero-video-wrap');
+  if (whyRescueVideo) {
+    gsap.to(whyRescueVideo, {
+      y: 30,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.why-rescue',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+  }
+
+  // ── Quote Card Reveal ──
+  const quoteCard = document.querySelector('.quote-card');
+  if (quoteCard) {
+    gsap.from(quoteCard, {
+      x: -40,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: quoteCard,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+    });
+  }
+
+  // ── Smooth Scroll for Anchor Links ──
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 72;
-        const targetPos = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top: targetPos, behavior: 'smooth' });
-      }
-    });
-  });
-
-  // ── Underwater bubble particles ──────────────────────────
-  function createBubbleParticles(container) {
-    if (!container) return;
-    
-    const count = 15;
-    for (let i = 0; i < count; i++) {
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      const size = Math.random() * 8 + 3; // 3-11px
-      bubble.style.cssText = `
-        left: ${Math.random() * 100}%;
-        width: ${size}px;
-        height: ${size}px;
-        animation-duration: ${Math.random() * 20 + 15}s;
-        animation-delay: ${Math.random() * 15}s;
-      `;
-      container.appendChild(bubble);
-    }
-  }
-
-  // Create bubbles for all bubble containers
-  document.querySelectorAll('.bubble-particles').forEach(container => {
-    createBubbleParticles(container);
-  });
-
-  // ── Parallax scrolling ───────────────────────────────────
-  const parallaxElements = document.querySelectorAll('.video-bg, .light-caustics');
-  
-  function updateParallax() {
-    const scrolled = window.pageYOffset;
-    
-    parallaxElements.forEach(element => {
-      const rate = scrolled * -0.3; // Slow scroll speed
-      element.style.transform = `translate(-50%, calc(-50% + ${rate}px))`;
-    });
-  }
-
-  if (parallaxElements.length > 0) {
-    window.addEventListener('scroll', updateParallax, { passive: true });
-  }
-
-  // ── 3D Tilt Effects ──────────────────────────────────────
-  const tiltCards = document.querySelectorAll('.animal-card, .animal-full-card, .help-card, .product-card');
-  
-  tiltCards.forEach(card => {
-    card.addEventListener('mouseenter', (e) => {
-      e.target.style.transition = 'transform 0.3s ease';
-    });
-
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = (y - centerY) / 8; // Tilt intensity
-      const rotateY = -(x - centerX) / 8;
-      
-      card.style.transform = `
-        translateY(-6px) 
-        rotateX(${rotateX}deg) 
-        rotateY(${rotateY}deg)
-        scale(1.02)
-      `;
-    });
-
-    card.addEventListener('mouseleave', (e) => {
-      e.target.style.transition = 'transform 0.5s ease';
-      e.target.style.transform = 'translateY(0) rotateX(0) rotateY(0) scale(1)';
-      
-      setTimeout(() => {
-        e.target.style.transition = '';
-      }, 500);
-    });
-  });
-
-  // ── Enhanced scroll reveals ──────────────────────────────
-  const scrollRevealElements = document.querySelectorAll('.animal-card, .help-card, .founder-card, .product-card');
-  
-  if (scrollRevealElements.length > 0) {
-    const scrollRevealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('scroll-reveal', 'revealed');
-            }, index * 100); // Stagger the animations
-            scrollRevealObserver.unobserve(entry.target);
-          }
+        gsap.to(window, {
+          scrollTo: {
+            y: target,
+            offsetY: 80,
+          },
+          duration: 1,
+          ease: 'power3.inOut',
         });
-      },
-      {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
       }
-    );
+    });
+  });
 
-    scrollRevealElements.forEach(el => scrollRevealObserver.observe(el));
-  }
-
-  // ── Filter tabs (animals page) ───────────────────────────
-  const filterTabs = document.querySelectorAll('.filter-tab');
-  if (filterTabs.length > 0) {
-    filterTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        filterTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        // Non-functional for mockup — just visual feedback
-      });
+  // ── Stats Section Border Glow ──
+  const statsSection = document.querySelector('.stats');
+  if (statsSection) {
+    ScrollTrigger.create({
+      trigger: statsSection,
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        statsSection.style.transition = 'border-color 0.8s ease';
+        statsSection.style.borderColor = 'rgba(200, 164, 78, 0.35)';
+      },
     });
   }
 
-  // ── Newsletter form (non-functional mockup) ───────────────
-  const newsletterForm = document.querySelector('.newsletter__form');
+  // ── Newsletter Form Interaction ──
+  const newsletterForm = document.querySelector('.newsletter-form');
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const input = newsletterForm.querySelector('input');
       const btn = newsletterForm.querySelector('.btn');
-      if (input && input.value) {
-        btn.textContent = '✓ Subscribed!';
-        btn.style.background = '#2d5a27';
-        btn.style.borderColor = '#2d5a27';
+      const input = newsletterForm.querySelector('input');
+      if (btn && input && input.value) {
+        const originalText = btn.textContent;
+        btn.textContent = 'Subscribed!';
+        btn.style.background = 'var(--green)';
+        btn.style.color = 'var(--text)';
         input.value = '';
         setTimeout(() => {
-          btn.textContent = 'Subscribe';
+          btn.textContent = originalText;
           btn.style.background = '';
-          btn.style.borderColor = '';
+          btn.style.color = '';
         }, 3000);
       }
     });
   }
 
-  // ── Donation tier selection feedback ────────────────────
-  document.querySelectorAll('.tier-card').forEach(card => {
-    if (card.tagName === 'A') return;
-    card.addEventListener('click', () => {
-      document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
+  // ── Founder Card 3D Tilt Effect ──
+  document.querySelectorAll('.founder-card').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to(card, {
+        rotateY: x * 8,
+        rotateX: -y * 8,
+        duration: 0.4,
+        ease: 'power2.out',
+        transformPerspective: 800,
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        rotateY: 0,
+        rotateX: 0,
+        duration: 0.6,
+        ease: 'elastic.out(1, 0.6)',
+      });
     });
   });
 
+  // ── Bubble Particles (Canvas) ──
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText =
+      'position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.4;';
+    hero.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const particles = [];
+    const count = 35;
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2.5 + 0.5,
+        dx: (Math.random() - 0.5) * 0.3,
+        dy: -(Math.random() * 0.4 + 0.1),
+        opacity: Math.random() * 0.6 + 0.2,
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.y < -10) {
+          p.y = canvas.height + 10;
+          p.x = Math.random() * canvas.width;
+        }
+        if (p.x < -10) p.x = canvas.width + 10;
+        if (p.x > canvas.width + 10) p.x = -10;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(200, 164, 78, ${p.opacity})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+
+  // ── Preloader / Page Reveal ──
+  window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+    gsap.from('body', {
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    });
+  });
 })();
