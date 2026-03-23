@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bellowing Acres is a 40-acre wildlife sanctuary in Putnam County, Florida — providing forever homes to rescued alligators, crocodiles, and exotic animals that would otherwise face euthanasia." />
+  <title>Bellowing Acres — Alligator & Wildlife Sanctuary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐊</text></svg>" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Bellowing Acres Home">
+        <div class="nav__logo-icon" aria-hidden="true">🐊</div>
+        <div class="nav__logo-text">
+          <span class="nav__logo-name">Bellowing Acres</span>
+          <span class="nav__logo-sub">Wildlife Sanctuary</span>
+        </div>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="animals.html">Animals</a></li>
+        <li><a href="visit.html">Visit</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merchandise.html">Merch</a></li>
+      </ul>
+
+      <div class="nav__cta">
+        <a href="donate.html" class="btn btn--primary btn--sm">Donate Now</a>
+      </div>
+
+      <button class="nav__hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav__mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="animals.html">Animals</a>
+    <a href="visit.html">Visit</a>
+    <a href="about.html">About</a>
+    <a href="merchandise.html">Merchandise</a>
+    <a href="donate.html" class="btn btn--primary">Donate Now</a>
+  </div>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════════════════ -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__texture" aria-hidden="true"></div>
+      <div class="hero__particles" aria-hidden="true"></div>
+
+      <!-- Decorative gator silhouette -->
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding-right:5%;pointer-events:none;z-index:1;opacity:0.04;" aria-hidden="true">
+        <span style="font-size:clamp(14rem,25vw,22rem);line-height:1;filter:blur(2px);">🐊</span>
+      </div>
+
+      <div class="hero__content">
+        <div class="hero__eyebrow" aria-hidden="true">
+          Putnam County, Florida
+        </div>
+
+        <h1 class="hero__title">
+          Giving Florida's Wildlife<br/>
+          <em>a Second Chance</em>
+        </h1>
+
+        <p class="hero__subtitle">
+          Bellowing Acres is a 40-acre sanctuary providing forever homes to rescued alligators, crocodiles, and exotic animals that would otherwise face euthanasia.
+        </p>
+
+        <div class="hero__ctas">
+          <a href="donate.html" class="btn btn--primary btn--lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            Donate Now
+          </a>
+          <a href="visit.html" class="btn btn--outline btn--lg">
+            Plan Your Visit
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <div class="hero__scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         IMPACT STATS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="stats" aria-label="Impact statistics">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat reveal">
+            <span class="stat__number" data-target="40" data-suffix="+">40+</span>
+            <span class="stat__label">Acres of Sanctuary</span>
+          </div>
+          <div class="stat reveal reveal-delay-2">
+            <span class="stat__number" data-target="100" data-suffix="+">100+</span>
+            <span class="stat__label">Animals Rescued</span>
+          </div>
+          <div class="stat reveal reveal-delay-3">
+            <span class="stat__number" data-target="2021" data-suffix="">2021</span>
+            <span class="stat__label">Founded</span>
+          </div>
+          <div class="stat reveal reveal-delay-4">
+            <span class="stat__number" data-target="15" data-suffix="+">15+</span>
+            <span class="stat__label">Years Experience</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         MISSION SECTION
+    ═══════════════════════════════════════════════════════ -->
+    <section class="mission" aria-labelledby="mission-heading">
+      <div class="container">
+        <div class="mission__inner">
+
+          <div class="mission__text-block">
+            <span class="section-label reveal">Our Mission</span>
+            <h2 id="mission-heading" class="reveal">Every Animal Deserves a Chance</h2>
+            <p class="reveal">
+              Bellowing Acres provides a forever home to rescued nuisance alligators destined for euthanasia, rehabilitated animals that legally cannot be re-released, and surrendered exotic pets. Through education and awareness, we teach people how to co-exist with wildlife and why apex predators matter.
+            </p>
+
+            <div class="mission__features">
+              <div class="mission__feature reveal reveal-delay-1">
+                <div class="mission__feature-icon">🏡</div>
+                <div class="mission__feature-text">
+                  <strong>Forever Homes</strong>
+                  Every animal that arrives at Bellowing Acres stays for life — no transfers, no exceptions.
+                </div>
+              </div>
+              <div class="mission__feature reveal reveal-delay-2">
+                <div class="mission__feature-icon">🎓</div>
+                <div class="mission__feature-text">
+                  <strong>Education First</strong>
+                  We believe co-existence starts with understanding. We host tours and outreach to change minds.
+                </div>
+              </div>
+              <div class="mission__feature reveal reveal-delay-3">
+                <div class="mission__feature-icon">🤝</div>
+                <div class="mission__feature-text">
+                  <strong>Community Partnerships</strong>
+                  We work with trappers, wildlife agencies, and rescues to give animals a path forward.
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 reveal reveal-delay-4">
+              <a href="about.html" class="link-arrow">
+                Read Our Full Story
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="mission__image reveal" role="img" aria-label="Alligator in sanctuary habitat — photo coming soon">
+            <div class="img-overlay-icon" aria-hidden="true">🐊</div>
+            <div class="placeholder-label" aria-hidden="true">📸 Sanctuary Photo</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         MEET THE ANIMALS PREVIEW
+    ═══════════════════════════════════════════════════════ -->
+    <section class="animals-preview" aria-labelledby="animals-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal">Our Residents</span>
+          <h2 id="animals-heading" class="reveal">Meet the Animals</h2>
+          <p class="reveal">From nuisance gators to Nile crocodiles — every animal here has a story of survival.</p>
+        </div>
+
+        <div class="animals-grid">
+          <article class="animal-card reveal reveal-delay-1">
+            <div class="animal-card__image animal-card__image--gator">
+              <div class="animal-card__placeholder" aria-hidden="true">🐊</div>
+              <div class="animal-card__overlay" aria-hidden="true"></div>
+              <span class="animal-card__tag">Alligatoridae</span>
+            </div>
+            <div class="animal-card__body">
+              <h3>Alligators</h3>
+              <p>Over 80+ rescued gators call Bellowing Acres home. Each one was saved from euthanasia after being labeled a "nuisance" — removed from their habitat and given nowhere to go.</p>
+            </div>
+          </article>
+
+          <article class="animal-card reveal reveal-delay-2">
+            <div class="animal-card__image animal-card__image--croc">
+              <div class="animal-card__placeholder" aria-hidden="true">🦎</div>
+              <div class="animal-card__overlay" aria-hidden="true"></div>
+              <span class="animal-card__tag">Crocodilidae</span>
+            </div>
+            <div class="animal-card__body">
+              <h3>Crocodiles</h3>
+              <p>Including Akila, our beloved Nile crocodile donated by Gatorland Orlando. These ancient reptiles represent some of the rarest and most misunderstood animals in our care.</p>
+            </div>
+          </article>
+
+          <article class="animal-card reveal reveal-delay-3">
+            <div class="animal-card__image animal-card__image--exotic">
+              <div class="animal-card__placeholder" aria-hidden="true">🦜</div>
+              <div class="animal-card__overlay" aria-hidden="true"></div>
+              <span class="animal-card__tag">Exotic Animals</span>
+            </div>
+            <div class="animal-card__body">
+              <h3>Exotic Animals</h3>
+              <p>Reptiles, birds, and small mammals — rescued, rehabilitated, and given second chances. Many are surrendered pets whose owners couldn't provide proper care.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="animals-preview__cta reveal">
+          <a href="animals.html" class="link-arrow">
+            Meet All Our Animals
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         WHY RESCUE SECTION
+    ═══════════════════════════════════════════════════════ -->
+    <section class="why-rescue" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="why-rescue__inner">
+          <span class="section-label reveal">Why It Matters</span>
+          <h2 id="why-heading" class="reveal">Why Do Alligators<br/>Need Rescuing?</h2>
+          <p class="reveal">
+            Florida is home to over a million wild alligators — and every year, tens of thousands of nuisance calls flood wildlife agencies. When an alligator is deemed a "nuisance," they face a grim reality: state law prohibits relocation of animals over four feet, leaving only two options. Bellowing Acres chooses the third.
+          </p>
+
+          <div class="rescue-stats">
+            <div class="rescue-stat reveal reveal-delay-1">
+              <span class="rescue-stat__icon" aria-hidden="true">📞</span>
+              <div class="rescue-stat__number">Thousands of nuisance calls per year</div>
+              <p class="rescue-stat__text">Wildlife agencies receive a staggering number of calls annually from Floridians reporting alligators near homes, roads, and waterways.</p>
+            </div>
+            <div class="rescue-stat reveal reveal-delay-2">
+              <span class="rescue-stat__icon" aria-hidden="true">📏</span>
+              <div class="rescue-stat__number">Animals over 4ft cannot be relocated</div>
+              <p class="rescue-stat__text">Florida law prohibits releasing nuisance gators back into the wild. Once removed, they can never return to a natural habitat.</p>
+            </div>
+            <div class="rescue-stat reveal reveal-delay-3">
+              <span class="rescue-stat__icon" aria-hidden="true">⚖️</span>
+              <div class="rescue-stat__number">Captivity or euthanasia — the only options</div>
+              <p class="rescue-stat__text">Without sanctuaries like Bellowing Acres, these animals are killed. We exist to offer a life worth living instead.</p>
+            </div>
+          </div>
+
+          <div class="why-rescue__quote reveal">
+            <p>"These animals aren't dangerous because they're evil — they're doing exactly what alligators have done for 37 million years. They're just trying to survive. We believe they deserve the chance to keep doing that."</p>
+            <p style="margin-top:1rem;font-style:normal;font-size:0.85rem;color:var(--gold);">— Chris Gillette, Co-Founder</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         FOUNDERS SECTION
+    ═══════════════════════════════════════════════════════ -->
+    <section class="founders" aria-labelledby="founders-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal">The Team</span>
+          <h2 id="founders-heading" class="reveal">Meet the Co-Founders</h2>
+        </div>
+
+        <div class="founders__grid">
+
+          <article class="founder-card reveal reveal-delay-1">
+            <div class="founder-card__avatar" role="img" aria-label="Chris Gillette headshot placeholder">
+              <span aria-hidden="true">🧑‍🔬</span>
+            </div>
+            <div class="founder-card__name">Chris Gillette</div>
+            <div class="founder-card__title">Co-Founder &amp; Wildlife Biologist</div>
+            <p class="founder-card__bio">Wildlife biologist, photographer, and professional animal handler. Born and raised in Florida with a lifetime of experience working hands-on with crocodiles, alligators, sharks, and snakes. Known worldwide for his ability to train and habituate large reptiles — an extremely rare skill that makes Bellowing Acres possible.</p>
+            <div class="social-links" aria-label="Chris's social media">
+              <!-- Instagram -->
+              <a href="#" class="social-link" aria-label="Chris on Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <!-- Facebook -->
+              <a href="#" class="social-link" aria-label="Chris on Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <!-- TikTok -->
+              <a href="#" class="social-link" aria-label="Chris on TikTok">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+              </a>
+              <!-- YouTube -->
+              <a href="#" class="social-link" aria-label="Chris on YouTube">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="founder-card reveal reveal-delay-2">
+            <div class="founder-card__avatar" role="img" aria-label="Gabby Scampone headshot placeholder">
+              <span aria-hidden="true">👩‍🦰</span>
+            </div>
+            <div class="founder-card__name">Gabby Scampone</div>
+            <div class="founder-card__title">Co-Founder &amp; Animal Rescuer</div>
+            <p class="founder-card__bio">Co-founder and dedicated animal rescuer with over 15 years of experience caring for wildlife and domestic animals in need. Gabby's unwavering passion for giving animals second chances — paired with her hands-on expertise — led to the creation of Bellowing Acres. Her compassion is the heartbeat of the sanctuary.</p>
+            <div class="social-links" aria-label="Gabby's social media">
+              <a href="#" class="social-link" aria-label="Gabby on Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Gabby on Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Gabby on TikTok">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Gabby on YouTube">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         HOW TO HELP
+    ═══════════════════════════════════════════════════════ -->
+    <section class="get-involved" aria-labelledby="help-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal">Get Involved</span>
+          <h2 id="help-heading" class="reveal">Help Us Save More Lives</h2>
+          <p class="reveal">Every dollar, every share, every visit makes a difference for the animals in our care.</p>
+        </div>
+
+        <div class="help-grid">
+          <div class="help-card reveal reveal-delay-1">
+            <div class="help-card__icon" aria-hidden="true">💛</div>
+            <h3>Donate</h3>
+            <p>Your donation directly funds food, veterinary care, and habitat construction for our animals. 100% goes to the animals.</p>
+            <a href="donate.html" class="btn btn--primary btn--sm">Donate Now</a>
+          </div>
+          <div class="help-card reveal reveal-delay-2">
+            <div class="help-card__icon" aria-hidden="true">🏷️</div>
+            <h3>Sponsor an Animal</h3>
+            <p>Choose a resident to sponsor and receive regular updates, a photo, and a certificate of sponsorship.</p>
+            <a href="animals.html" class="btn btn--gold-outline btn--sm">Learn More</a>
+          </div>
+          <div class="help-card reveal reveal-delay-3">
+            <div class="help-card__icon" aria-hidden="true">🌿</div>
+            <h3>Volunteer</h3>
+            <p>Help us care for our animals and maintain 40 acres of sanctuary habitat. No experience required — just passion.</p>
+            <a href="visit.html" class="btn btn--gold-outline btn--sm">Apply</a>
+          </div>
+          <div class="help-card reveal reveal-delay-4">
+            <div class="help-card__icon" aria-hidden="true">👕</div>
+            <h3>Shop Merch</h3>
+            <p>Rep the sanctuary. Our merch is designed with the animals in mind — and 100% of proceeds go directly to animal care.</p>
+            <a href="merchandise.html" class="btn btn--gold-outline btn--sm">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         NEWSLETTER
+    ═══════════════════════════════════════════════════════ -->
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <div class="container">
+        <div class="newsletter__inner">
+          <span class="section-label reveal">Stay Connected</span>
+          <h2 id="newsletter-heading" class="reveal">Stay Connected</h2>
+          <p class="reveal">Get rescue updates, new animal arrivals, and sanctuary news delivered to your inbox. No spam — just the good stuff.</p>
+          <form class="newsletter__form reveal" aria-label="Newsletter signup">
+            <input
+              type="email"
+              class="newsletter__input"
+              placeholder="your@email.com"
+              aria-label="Email address"
+              autocomplete="email"
+              required
+            />
+            <button type="submit" class="btn btn--primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         IN THE NEWS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="in-the-news" aria-labelledby="news-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal">In the News</span>
+          <h2 id="news-heading" class="reveal">As Seen In</h2>
+          <p class="reveal">Our story has captured the attention of local and national media.</p>
+        </div>
+
+        <div class="news-logos reveal">
+          <span class="news-logo-placeholder">Local 6</span>
+          <span class="news-logo-placeholder">News4Jax</span>
+          <span class="news-logo-placeholder">Florida Today</span>
+          <span class="news-logo-placeholder">First Coast News</span>
+          <span class="news-logo-placeholder">Action News Jax</span>
+        </div>
+
+        <div class="text-center reveal">
+          <a href="about.html#press" class="link-arrow">
+            See All Coverage
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" aria-label="Bellowing Acres">
+            <div class="nav__logo-icon" aria-hidden="true">🐊</div>
+            <div class="nav__logo-text">
+              <span class="nav__logo-name">Bellowing Acres</span>
+              <span class="nav__logo-sub">Wildlife Sanctuary</span>
+            </div>
+          </a>
+          <p class="footer__tagline">A forever home for Florida's wildlife.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Navigate</p>
+          <ul class="footer__col-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="animals.html">Animals</a></li>
+            <li><a href="visit.html">Plan a Visit</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="merchandise.html">Merchandise</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Get Involved</p>
+          <ul class="footer__col-links">
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="animals.html">Sponsor an Animal</a></li>
+            <li><a href="visit.html">Volunteer</a></li>
+            <li><a href="merchandise.html">Shop Merch</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Contact</p>
+          <ul class="footer__col-links">
+            <li><span style="color:var(--text-dim)">📍 Putnam County, Florida</span></li>
+            <li><a href="mailto:info@bellowingacres.com">info@bellowingacres.com</a></li>
+            <li style="margin-top:1.5rem">
+              <a href="donate.html" class="btn btn--primary btn--sm" style="width:100%;justify-content:center">Donate Now</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2024 Bellowing Acres Wildlife Sanctuary. All rights reserved.</p>
+        <p><strong>Bellowing Acres is a registered 501(c)(3) nonprofit organization.</strong><br/>All donations are tax-deductible to the extent permitted by law.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

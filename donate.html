@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Donate to Bellowing Acres — 100% of donations go directly to animal care, veterinary expenses, habitat construction, and daily operations at our Florida wildlife sanctuary." />
+  <title>Donate — Bellowing Acres Wildlife Sanctuary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐊</text></svg>" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Bellowing Acres Home">
+        <div class="nav__logo-icon" aria-hidden="true">🐊</div>
+        <div class="nav__logo-text">
+          <span class="nav__logo-name">Bellowing Acres</span>
+          <span class="nav__logo-sub">Wildlife Sanctuary</span>
+        </div>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="animals.html">Animals</a></li>
+        <li><a href="visit.html">Visit</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merchandise.html">Merch</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a href="donate.html" class="btn btn--primary btn--sm active">Donate Now</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="animals.html">Animals</a>
+    <a href="visit.html">Visit</a>
+    <a href="about.html">About</a>
+    <a href="merchandise.html">Merchandise</a>
+    <a href="donate.html" class="btn btn--primary">Donate Now</a>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-label="Donation page hero">
+      <div class="page-hero__content">
+        <span class="section-label reveal">Make a Difference</span>
+        <h1 class="reveal">Every Dollar<br/><em>Saves a Life</em></h1>
+        <p class="reveal">100% of donations go directly to animal care, veterinary expenses, habitat construction, and daily operations. No overhead games — just animals that need us.</p>
+      </div>
+    </section>
+
+    <!-- DONATION TIERS -->
+    <section class="donation-tiers" aria-labelledby="tiers-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal">Choose Your Impact</span>
+          <h2 id="tiers-heading" class="reveal">What Your Gift Provides</h2>
+        </div>
+
+        <div class="tiers-grid">
+          <a href="#" class="tier-card reveal reveal-delay-1" aria-label="Donate $25 — Feed an alligator for a week">
+            <div class="tier-card__amount">$25</div>
+            <p class="tier-card__desc">Feed an alligator for a week — fresh, nutritious food to keep our residents healthy and thriving.</p>
+            <div class="tier-card__btn">Give $25 →</div>
+          </a>
+
+          <a href="#" class="tier-card reveal reveal-delay-2" aria-label="Donate $50 — Cover veterinary supplies for a month">
+            <div class="tier-card__amount">$50</div>
+            <p class="tier-card__desc">Cover veterinary supplies for a month — medications, wound care, and preventive treatments for our animals.</p>
+            <div class="tier-card__btn">Give $50 →</div>
+          </a>
+
+          <a href="#" class="tier-card tier-card--featured reveal reveal-delay-3" aria-label="Donate $100 — Sponsor a rescue transport">
+            <div class="tier-card__amount">$100</div>
+            <p class="tier-card__desc">Sponsor a rescue transport — fuel, equipment, and time to bring a nuisance gator safely to the sanctuary.</p>
+            <div class="tier-card__btn">Give $100 →</div>
+          </a>
+
+          <a href="#" class="tier-card reveal reveal-delay-1" aria-label="Donate $250 — Fund habitat construction">
+            <div class="tier-card__amount">$250</div>
+            <p class="tier-card__desc">Fund habitat construction — materials and labor to build safe, comfortable enclosures for incoming rescues.</p>
+            <div class="tier-card__btn">Give $250 →</div>
+          </a>
+
+          <a href="#" class="tier-card reveal reveal-delay-2" aria-label="Donate $500 — Name a rescue enclosure">
+            <div class="tier-card__amount">$500</div>
+            <p class="tier-card__desc">Name a rescue enclosure — your name or a loved one's name on a new habitat, with a photo certificate.</p>
+            <div class="tier-card__btn">Give $500 →</div>
+          </a>
+
+          <a href="#" class="tier-card reveal reveal-delay-3" aria-label="Donate $1000 — Become a Sanctuary Champion">
+            <div class="tier-card__amount">$1,000</div>
+            <p class="tier-card__desc">Become a Sanctuary Champion — provide a full month of care for a large alligator, including food, vet, and enrichment.</p>
+            <div class="tier-card__btn">Give $1,000 →</div>
+          </a>
+        </div>
+
+        <!-- Custom Amount -->
+        <div class="tier-custom reveal">
+          <label for="custom-amount">Custom Amount:</label>
+          <input type="number" id="custom-amount" placeholder="Enter your own amount..." min="1" />
+          <a href="#" class="btn btn--primary">Donate</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- OTHER WAYS TO GIVE -->
+    <section class="other-ways" aria-labelledby="other-ways-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal">More Ways to Help</span>
+          <h2 id="other-ways-heading" class="reveal">Other Ways to Give</h2>
+          <p class="reveal">Not ready to donate online? Here are more ways to make a difference.</p>
+        </div>
+
+        <div class="other-ways-grid">
+          <div class="other-way-card reveal reveal-delay-1">
+            <div class="other-way-card__icon" aria-hidden="true">📦</div>
+            <h3>Amazon Wishlist</h3>
+            <p>Shop our wishlist to send supplies, enrichment items, and food directly to the sanctuary. No minimum — every item helps.</p>
+            <div style="margin-top:1.25rem">
+              <a href="#" class="link-arrow" style="font-size:0.85rem">
+                View Wishlist
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="other-way-card reveal reveal-delay-2">
+            <div class="other-way-card__icon" aria-hidden="true">🦎</div>
+            <h3>Sponsor an Animal</h3>
+            <p>Choose a specific resident to sponsor. Receive a certificate, photo, and periodic updates on your animal's life at the sanctuary.</p>
+            <div style="margin-top:1.25rem">
+              <a href="animals.html" class="link-arrow" style="font-size:0.85rem">
+                Meet the Animals
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="other-way-card reveal reveal-delay-3">
+            <div class="other-way-card__icon" aria-hidden="true">🔁</div>
+            <h3>Monthly Giving</h3>
+            <p>Become a recurring supporter. Monthly gifts provide stability and allow us to plan ahead for animal care and rescues.</p>
+            <div style="margin-top:1.25rem">
+              <a href="#" class="link-arrow" style="font-size:0.85rem">
+                Set Up Monthly Giving
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="other-way-card reveal reveal-delay-4">
+            <div class="other-way-card__icon" aria-hidden="true">🎁</div>
+            <h3>In-Kind Donations</h3>
+            <p>We accept donations of food (fish, chicken, meat), building materials, fencing, and veterinary supplies. Contact us to coordinate.</p>
+            <div style="margin-top:1.25rem">
+              <a href="mailto:info@bellowingacres.com" class="link-arrow" style="font-size:0.85rem">
+                Contact Us
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST SECTION -->
+    <section class="trust-section" aria-label="501c3 trust information">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal">Our Commitment</span>
+          <h2 class="reveal">Your Trust Matters</h2>
+        </div>
+
+        <div class="trust-badge reveal" style="display:flex;max-width:700px;margin:0 auto;padding:2.5rem;gap:2rem;align-items:center;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);backdrop-filter:blur(12px);">
+          <div class="trust-badge__icon" aria-hidden="true" style="font-size:3rem;flex-shrink:0">🛡️</div>
+          <div class="trust-badge__text">
+            <strong style="font-size:1.1rem;color:var(--text);display:block;margin-bottom:0.5rem">Registered 501(c)(3) Nonprofit</strong>
+            <p style="font-size:0.9rem;line-height:1.6;">Bellowing Acres Wildlife Sanctuary is a registered 501(c)(3) nonprofit organization. All donations are tax-deductible to the extent permitted by law. EIN: [Pending — application in progress]</p>
+            <p style="font-size:0.85rem;margin-top:0.75rem;color:var(--gold);">100% of every donation goes directly to the animals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">
+            <div class="nav__logo-icon" aria-hidden="true">🐊</div>
+            <div class="nav__logo-text">
+              <span class="nav__logo-name">Bellowing Acres</span>
+              <span class="nav__logo-sub">Wildlife Sanctuary</span>
+            </div>
+          </a>
+          <p class="footer__tagline">A forever home for Florida's wildlife.</p>
+          <div class="footer__social" aria-label="Social media">
+            <a href="#" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="#" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" class="social-link" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+            <a href="#" class="social-link" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Navigate</p>
+          <ul class="footer__col-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="animals.html">Animals</a></li>
+            <li><a href="visit.html">Plan a Visit</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="merchandise.html">Merchandise</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Get Involved</p>
+          <ul class="footer__col-links">
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="animals.html">Sponsor an Animal</a></li>
+            <li><a href="visit.html">Volunteer</a></li>
+            <li><a href="merchandise.html">Shop Merch</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Contact</p>
+          <ul class="footer__col-links">
+            <li><span style="color:var(--text-dim)">📍 Putnam County, Florida</span></li>
+            <li><a href="mailto:info@bellowingacres.com">info@bellowingacres.com</a></li>
+            <li style="margin-top:1.5rem"><a href="donate.html" class="btn btn--primary btn--sm" style="width:100%;justify-content:center">Donate Now</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2024 Bellowing Acres Wildlife Sanctuary. All rights reserved.</p>
+        <p><strong>Bellowing Acres is a registered 501(c)(3) nonprofit organization.</strong><br/>All donations are tax-deductible to the extent permitted by law.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
