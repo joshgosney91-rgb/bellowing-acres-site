@@ -63,10 +63,13 @@
     <!-- ═══════════════════════════════════════════════════════
          HERO SECTION
     ═══════════════════════════════════════════════════════ -->
-    <section class="hero" aria-label="Hero">
-      <div class="hero__bg" aria-hidden="true"></div>
-      <div class="hero__texture" aria-hidden="true"></div>
-      <div class="hero__particles" aria-hidden="true"></div>
+    <section class="hero video-bg-container" aria-label="Hero">
+      <video class="video-bg" autoplay muted loop playsinline poster="">
+        <source src="assets/video/hero-croc-silhouette.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay" aria-hidden="true"></div>
+      <div class="light-caustics" aria-hidden="true"></div>
+      <div class="bubble-particles" aria-hidden="true"></div>
 
       <!-- Decorative gator silhouette -->
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding-right:5%;pointer-events:none;z-index:1;opacity:0.04;" aria-hidden="true">
@@ -250,7 +253,12 @@
     <!-- ═══════════════════════════════════════════════════════
          WHY RESCUE SECTION
     ═══════════════════════════════════════════════════════ -->
-    <section class="why-rescue" aria-labelledby="why-heading">
+    <section class="why-rescue video-bg-container" aria-labelledby="why-heading">
+      <video class="video-bg" autoplay muted loop playsinline>
+        <source src="assets/video/golden-light-croc.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay" aria-hidden="true"></div>
+      <div class="light-caustics" aria-hidden="true"></div>
       <div class="container">
         <div class="why-rescue__inner">
           <span class="section-label reveal">Why It Matters</span>

@@ -145,25 +145,106 @@
     });
   });
 
-  // ── Hero particles ───────────────────────────────────────
-  const particleContainer = document.querySelector('.hero__particles');
-  if (particleContainer) {
-    const colors = ['#c8a44e', '#2d5a27', '#4a9440', '#e0bf78'];
-    const count = 20;
-
+  // ── Underwater bubble particles ──────────────────────────
+  function createBubbleParticles(container) {
+    if (!container) return;
+    
+    const count = 15;
     for (let i = 0; i < count; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.cssText = `
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      const size = Math.random() * 8 + 3; // 3-11px
+      bubble.style.cssText = `
         left: ${Math.random() * 100}%;
-        width: ${Math.random() * 3 + 1}px;
-        height: ${Math.random() * 3 + 1}px;
-        background: ${colors[Math.floor(Math.random() * colors.length)]};
-        animation-duration: ${Math.random() * 15 + 10}s;
-        animation-delay: ${Math.random() * 10}s;
+        width: ${size}px;
+        height: ${size}px;
+        animation-duration: ${Math.random() * 20 + 15}s;
+        animation-delay: ${Math.random() * 15}s;
       `;
-      particleContainer.appendChild(particle);
+      container.appendChild(bubble);
     }
+  }
+
+  // Create bubbles for all bubble containers
+  document.querySelectorAll('.bubble-particles').forEach(container => {
+    createBubbleParticles(container);
+  });
+
+  // ── Parallax scrolling ───────────────────────────────────
+  const parallaxElements = document.querySelectorAll('.video-bg, .light-caustics');
+  
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    
+    parallaxElements.forEach(element => {
+      const rate = scrolled * -0.3; // Slow scroll speed
+      element.style.transform = `translate(-50%, calc(-50% + ${rate}px))`;
+    });
+  }
+
+  if (parallaxElements.length > 0) {
+    window.addEventListener('scroll', updateParallax, { passive: true });
+  }
+
+  // ── 3D Tilt Effects ──────────────────────────────────────
+  const tiltCards = document.querySelectorAll('.animal-card, .animal-full-card, .help-card, .product-card');
+  
+  tiltCards.forEach(card => {
+    card.addEventListener('mouseenter', (e) => {
+      e.target.style.transition = 'transform 0.3s ease';
+    });
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 8; // Tilt intensity
+      const rotateY = -(x - centerX) / 8;
+      
+      card.style.transform = `
+        translateY(-6px) 
+        rotateX(${rotateX}deg) 
+        rotateY(${rotateY}deg)
+        scale(1.02)
+      `;
+    });
+
+    card.addEventListener('mouseleave', (e) => {
+      e.target.style.transition = 'transform 0.5s ease';
+      e.target.style.transform = 'translateY(0) rotateX(0) rotateY(0) scale(1)';
+      
+      setTimeout(() => {
+        e.target.style.transition = '';
+      }, 500);
+    });
+  });
+
+  // ── Enhanced scroll reveals ──────────────────────────────
+  const scrollRevealElements = document.querySelectorAll('.animal-card, .help-card, .founder-card, .product-card');
+  
+  if (scrollRevealElements.length > 0) {
+    const scrollRevealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('scroll-reveal', 'revealed');
+            }, index * 100); // Stagger the animations
+            scrollRevealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    scrollRevealElements.forEach(el => scrollRevealObserver.observe(el));
   }
 
   // ── Filter tabs (animals page) ───────────────────────────
