@@ -204,211 +204,6 @@
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       const target = document.querySelector(link.getAttribute('href'));
-   BELLOWING ACRES — MAIN.JS
-   GSAP ScrollTrigger + Premium Interactions
-   ======================================== */
-
-(function () {
-  'use strict';
-
-  // ── GSAP Setup ──
-  gsap.registerPlugin(ScrollTrigger);
-
-  // ── Nav Scroll Effect ──
-  const nav = document.getElementById('nav');
-  if (nav) {
-    ScrollTrigger.create({
-      start: 'top -60',
-      end: 99999,
-      onUpdate: (self) => {
-        if (self.direction === 1 || window.scrollY > 60) {
-          nav.classList.add('scrolled');
-        }
-        if (window.scrollY <= 60) {
-          nav.classList.remove('scrolled');
-        }
-      },
-    });
-  }
-
-  // ── Mobile Nav Toggle ──
-  const hamburger = document.getElementById('hamburger');
-  const navMobile = document.getElementById('navMobile');
-
-  if (hamburger && navMobile) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navMobile.classList.toggle('open');
-      document.body.style.overflow = navMobile.classList.contains('open')
-        ? 'hidden'
-        : '';
-    });
-
-    // Close on link click
-    navMobile.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        navMobile.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-
-  // ── Scroll Reveal Animations ──
-  // Every element with .anim fades up on scroll
-  gsap.utils.toArray('.anim').forEach((el) => {
-    gsap.from(el, {
-      y: 50,
-      opacity: 0,
-      duration: 0.9,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
-      },
-    });
-  });
-
-  // ── Staggered Card Animations ──
-  gsap.utils.toArray('.cards-grid').forEach((grid) => {
-    const cards = grid.querySelectorAll('.glass-card, .animal-card, .help-card, .founder-card, .rescue-card');
-    if (cards.length === 0) return;
-
-    gsap.from(cards, {
-      y: 70,
-      opacity: 0,
-      duration: 0.75,
-      stagger: 0.12,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: grid,
-        start: 'top 82%',
-        toggleActions: 'play none none none',
-      },
-    });
-  });
-
-  // ── Counter Animations ──
-  document.querySelectorAll('.stat-number').forEach((counter) => {
-    const target = parseInt(counter.getAttribute('data-target'), 10);
-    const suffix = counter.getAttribute('data-suffix') || '';
-    if (isNaN(target)) return;
-
-    const obj = { val: 0 };
-
-    ScrollTrigger.create({
-      trigger: counter,
-      start: 'top 90%',
-      once: true,
-      onEnter: () => {
-        gsap.to(obj, {
-          val: target,
-          duration: 2.2,
-          ease: 'power2.out',
-          onUpdate: () => {
-            counter.textContent = Math.round(obj.val).toLocaleString() + suffix;
-          },
-        });
-      },
-    });
-  });
-
-  // ── News Badge Stagger ──
-  const newsLogos = document.querySelector('.news-logos');
-  if (newsLogos) {
-    const badges = newsLogos.querySelectorAll('.news-badge');
-    gsap.from(badges, {
-      scale: 0.85,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: 'back.out(1.4)',
-      scrollTrigger: {
-        trigger: newsLogos,
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      },
-    });
-  }
-
-  // ── Divider Grow Animation ──
-  gsap.utils.toArray('.divider').forEach((div) => {
-    gsap.from(div, {
-      scaleX: 0,
-      duration: 1.2,
-      ease: 'power2.inOut',
-      scrollTrigger: {
-        trigger: div,
-        start: 'top 92%',
-        toggleActions: 'play none none none',
-      },
-    });
-  });
-
-  // ── Magnetic Button Effect ──
-  document.querySelectorAll('.btn-primary, .btn-outline, .btn-gold-outline').forEach((btn) => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      gsap.to(btn, {
-        x: x * 0.2,
-        y: y * 0.2,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
-    });
-
-    btn.addEventListener('mouseleave', () => {
-      gsap.to(btn, {
-        x: 0,
-        y: 0,
-        duration: 0.5,
-        ease: 'elastic.out(1, 0.5)',
-      });
-    });
-  });
-
-  // ── Parallax on Hero Video ──
-  // Disabled — keeps hero asset locked in frame
-  // If you want a subtle effect later, use y: 30 max
-
-  // ── Why Rescue Section Parallax ──
-  const whyRescueVideo = document.querySelector('.why-rescue .hero-video-wrap');
-  if (whyRescueVideo) {
-    gsap.to(whyRescueVideo, {
-      y: 30,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.why-rescue',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      },
-    });
-  }
-
-  // ── Quote Card Reveal ──
-  const quoteCard = document.querySelector('.quote-card');
-  if (quoteCard) {
-    gsap.from(quoteCard, {
-      x: -40,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: quoteCard,
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      },
-    });
-  }
-
-  // ── Smooth Scroll for Anchor Links ──
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      const target = document.querySelector(link.getAttribute('href'));
       if (target) {
         e.preventDefault();
         gsap.to(window, {
@@ -535,6 +330,39 @@
       requestAnimationFrame(animate);
     }
     animate();
+  }
+
+  // ── Mobile Video Autoplay Fix ──
+  // Mobile browsers often only autoplay the first video on a page.
+  // Use IntersectionObserver to play/pause videos as they enter/leave the viewport.
+  const allVideos = document.querySelectorAll('video.hero-video');
+  if (allVideos.length > 0 && 'IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            // Video is visible — try to play it
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(() => {
+                // Autoplay was prevented — silently ignore
+              });
+            }
+          } else {
+            // Video is offscreen — pause to save resources
+            video.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.15, // Trigger when 15% of the video is visible
+      }
+    );
+
+    allVideos.forEach((video) => {
+      videoObserver.observe(video);
+    });
   }
 
   // ── Preloader / Page Reveal ──
